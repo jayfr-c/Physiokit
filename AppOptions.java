@@ -6,9 +6,9 @@ import javax.swing.*;
 public class AppOptions { 
 	public static List<String> getDetailsOptions() {
 		ArrayList<String> detailsOptions = new ArrayList<>();
-        detailsOptions.add("Treatment");
         detailsOptions.add("Diagnosis");
         detailsOptions.add("Causes");
+        detailsOptions.add("Treatment");
         detailsOptions.add("References");
         return detailsOptions;
 	}

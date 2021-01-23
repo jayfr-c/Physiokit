@@ -19,7 +19,7 @@ public class AppLayout implements LayoutManager {
 
         Insets insets = parent.getInsets();
         dim.width = 636 + insets.left + insets.right;
-        dim.height = 462 + insets.top + insets.bottom;
+        dim.height = 520 + insets.top + insets.bottom;
 
         return dim;
     }
@@ -34,57 +34,69 @@ public class AppLayout implements LayoutManager {
 
         Component c;
         c = parent.getComponent(0);
-        if (c.isVisible()) {c.setBounds(insets.left+8,insets.top+8,240,32);}   //prediction result
+        if (c.isVisible()) {c.setBounds(insets.left+8,insets.top+460,245,50);}   //prediction result (under button)
         c = parent.getComponent(1);
         if (c.isVisible()) {c.setBounds(insets.left+272,insets.top+42,352,100);} //Definition Area
         c = parent.getComponent(2);         
         if (c.isVisible()) {c.setBounds(insets.left+272,insets.top+8,352,32);} //toDefine Label
         c = parent.getComponent(3);
-        if (c.isVisible()) {c.setBounds(insets.left+56,insets.top+420,144,32);}  //predictor button
+        if (c.isVisible()) {c.setBounds(insets.left+8,insets.top+420,245,32);}  //predictor button
         c = parent.getComponent(4);
         if (c.isVisible()) {c.setBounds(insets.left+272,insets.top+150,176,32);} //further details option box
         c = parent.getComponent(5);
-        if (c.isVisible()) {c.setBounds(insets.left+272,insets.top+190,352,263);} //further details area
+        if (c.isVisible()) {c.setBounds(insets.left+272,insets.top+190,352,320);} //further details area
         c = parent.getComponent(6);
-        if (c.isVisible()) {c.setBounds(insets.left+8,insets.top+48,72,24);}  //age textfield
+        if (c.isVisible()) {c.setBounds(insets.left+8,insets.top+65,72,24);}  //age textfield
         c = parent.getComponent(7);
-        if (c.isVisible()) {c.setBounds(insets.left+88,insets.top+48,112,24);} //gender combo box
+        if (c.isVisible()) {c.setBounds(insets.left+88,insets.top+65,112,24);} //gender combo box
         c = parent.getComponent(8);
-        if (c.isVisible()) {c.setBounds(insets.left+32,insets.top+80,100,24);} //polyuria
+        if (c.isVisible()) {c.setBounds(insets.left+32,insets.top+89,100,24);} //polyuria
         c = parent.getComponent(9);
-        if (c.isVisible()) {c.setBounds(insets.left+32,insets.top+100,100,24);} //polydipsia
+        if (c.isVisible()) {c.setBounds(insets.left+32,insets.top+109,100,24);} //polydipsia
         c = parent.getComponent(10);
-        if (c.isVisible()) {c.setBounds(insets.left+32,insets.top+120,200,24);} //sudden weight loss
+        if (c.isVisible()) {c.setBounds(insets.left+32,insets.top+129,200,24);} //sudden weight loss
         c = parent.getComponent(11);
-        if (c.isVisible()) {c.setBounds(insets.left+32,insets.top+140,200,24);} //fatigue
+        if (c.isVisible()) {c.setBounds(insets.left+32,insets.top+149,200,24);} //fatigue
         c = parent.getComponent(12);
-        if (c.isVisible()) {c.setBounds(insets.left+32,insets.top+160,200,24);} //polyphagia
+        if (c.isVisible()) {c.setBounds(insets.left+32,insets.top+169,200,24);} //polyphagia
         c = parent.getComponent(13);
-        if (c.isVisible()) {c.setBounds(insets.left+32,insets.top+180,200,24);} //genital thrush
+        if (c.isVisible()) {c.setBounds(insets.left+32,insets.top+189,200,24);} //genital thrush
         c = parent.getComponent(14);
-        if (c.isVisible()) {c.setBounds(insets.left+32,insets.top+200,200,24);} //visualblurring
+        if (c.isVisible()) {c.setBounds(insets.left+32,insets.top+209,200,24);} //visualblurring
         c = parent.getComponent(15);
-        if (c.isVisible()) {c.setBounds(insets.left+32,insets.top+220,200,24);} //itching
+        if (c.isVisible()) {c.setBounds(insets.left+32,insets.top+229,200,24);} //itching
         c = parent.getComponent(16);
-        if (c.isVisible()) {c.setBounds(insets.left+32,insets.top+240,200,24);} //irritability
+        if (c.isVisible()) {c.setBounds(insets.left+32,insets.top+249,200,24);} //irritability
         c = parent.getComponent(17);
-        if (c.isVisible()) {c.setBounds(insets.left+32,insets.top+260,200,24);} //delayed healing
+        if (c.isVisible()) {c.setBounds(insets.left+32,insets.top+269,200,24);} //delayed healing
         c = parent.getComponent(18);
-        if (c.isVisible()) {c.setBounds(insets.left+32,insets.top+280,200,24);} //partial paresis
+        if (c.isVisible()) {c.setBounds(insets.left+32,insets.top+289,200,24);} //partial paresis
         c = parent.getComponent(19);
-        if (c.isVisible()) {c.setBounds(insets.left+32,insets.top+300,200,24);} //muscle stiffness
+        if (c.isVisible()) {c.setBounds(insets.left+32,insets.top+309,200,24);} //muscle stiffness
         //pane 
         c = parent.getComponent(20);
-        if (c.isVisible()) {c.setBounds(insets.left+32,insets.top+320,200,24);} //alopecia
+        if (c.isVisible()) {c.setBounds(insets.left+32,insets.top+329,200,24);} //alopecia
         c = parent.getComponent(21);
-        if (c.isVisible()) {c.setBounds(insets.left+32,insets.top+340,200,24);} //obesity 
+        if (c.isVisible()) {c.setBounds(insets.left+32,insets.top+349,200,24);} //obesity 
         c = parent.getComponent(22);
-        if (c.isVisible()) {c.setBounds(insets.left+8,insets.top+375,220,32);} //options combo box 
+        if (c.isVisible()) {c.setBounds(insets.left+8,insets.top+8,220,32);} //classifier text area
         c = parent.getComponent(23);                                                    
-        if (c.isVisible()) {c.setBounds(insets.left+235,insets.top+375,20,32);} //models details
+        if (c.isVisible()) {c.setBounds(insets.left+230,insets.top+10,24,24);} //models details
         c = parent.getComponent(24);
         if (c.isVisible()) {c.setBounds(insets.left+455,insets.top+150,32,32);} //details expand
         c = parent.getComponent(25);
-        if (c.isVisible()) {c.setBounds(insets.left+205,insets.top+48,24,24);} //details expand
+        if (c.isVisible()) {c.setBounds(insets.left+205,insets.top+65,24,24);} //clear button
+        c = parent.getComponent(26);
+        if (c.isVisible()) {c.setBounds(insets.left+8,insets.top+37,240,32);} //age label
+        c = parent.getComponent(27);
+        if (c.isVisible()) {c.setBounds(insets.left+88,insets.top+37,240,32);} //gender label
+        c = parent.getComponent(28);         
+        if (c.isVisible()) {c.setBounds(insets.left+530,insets.top+10,24,24);} //back nav
+        c = parent.getComponent(29);         
+        if (c.isVisible()) {c.setBounds(insets.left+560,insets.top+10,24,24);} //forward nav
+        c = parent.getComponent(30);         
+        if (c.isVisible()) {c.setBounds(insets.left+590,insets.top+10,24,24);} //home nav
+        c = parent.getComponent(31);         
+        if (c.isVisible()) {c.setBounds(insets.left+8,insets.top+375,245,44);} //instructions label
     }
 }

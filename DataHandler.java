@@ -18,11 +18,7 @@ public class DataHandler {
 
 	public static List<String> getSymptoms() throws IOException {
 		return DataExtractor.fileToList(DataPaths.SYMPTOMS_LIST);
-	}	
-    /*meal recommendation file reading*/
-    public static List<String> getNutritionalData() throws IOException {
-        return DataExtractor.fileToList(DataPaths.NUTRITIONAL_DATA);
-    }
+	}	 
     public static String openInfo(String filename) throws IOException {
         return DataExtractor.fileToString(DataPaths.INFOPATH + filename + "/definition.txt");    
     }
@@ -58,13 +54,7 @@ public class DataHandler {
         filter.setInputFormat(dataset);
         return Filter.useFilter(dataset, filter);
     } 
-
-    public static List<Meal> getMealList() throws IOException {
-        DataParserCSV parser = new DataParserCSV();
-        List<String> rawData = getNutritionalData(); 
-        List<Meal> mealList = parser.parseLines(rawData);
-        return mealList;
-    } 
+ 
     public static void writeLines(String filePath, List<String> lines) throws IOException {
         Path path = Paths.get(filePath);
         Files.write(path, lines, StandardOpenOption.WRITE);

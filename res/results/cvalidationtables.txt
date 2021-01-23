@@ -6,9 +6,7 @@ Polyuria = No
 |   |   Irritability = No
 |   |   |   Itching = Yes
 |   |   |   |   Gender = Male
-|   |   |   |   |   Alopecia = Yes
-|   |   |   |   |   |   Obesity = Yes: Positive (4.0)
-|   |   |   |   |   |   Obesity = No: Negative (1.0)
+|   |   |   |   |   Alopecia = Yes: Positive (5.0/1.0)
 |   |   |   |   |   Alopecia = No: Negative (7.0)
 |   |   |   |   Gender = Female: Positive (4.0)
 |   |   |   Itching = No: Positive (6.0)
@@ -22,22 +20,16 @@ Polyuria = No
 |   |   |   |   delayed healing = No: Negative (97.0/2.0)
 |   |   |   Irritability = Yes
 |   |   |   |   Genital thrush = No
-|   |   |   |   |   Age <= 42
-|   |   |   |   |   |   Age <= 41: Negative (1.0)
-|   |   |   |   |   |   Age > 41: Positive (2.0)
+|   |   |   |   |   Age <= 42: Positive (3.0/1.0)
 |   |   |   |   |   Age > 42: Negative (10.0)
 |   |   |   |   Genital thrush = Yes: Positive (5.0)
 |   |   Gender = Female
-|   |   |   Alopecia = Yes
-|   |   |   |   Polyphagia = No: Negative (13.0)
-|   |   |   |   Polyphagia = Yes: Positive (1.0)
+|   |   |   Alopecia = Yes: Negative (14.0/1.0)
 |   |   |   Alopecia = No
-|   |   |   |   Irritability = No
-|   |   |   |   |   Age <= 34
-|   |   |   |   |   |   visual blurring = No: Negative (5.0)
-|   |   |   |   |   |   visual blurring = Yes: Positive (5.0)
-|   |   |   |   |   Age > 34: Positive (26.0)
-|   |   |   |   Irritability = Yes: Negative (1.0)
+|   |   |   |   visual blurring = No
+|   |   |   |   |   Age <= 34: Negative (5.0)
+|   |   |   |   |   Age > 34: Positive (16.0/1.0)
+|   |   |   |   visual blurring = Yes: Positive (16.0)
 Polyuria = Yes
 |   Polydipsia = Yes: Positive (193.0)
 |   Polydipsia = No
@@ -52,30 +44,30 @@ Polyuria = Yes
 |   |   |   delayed healing = No: Positive (11.0)
 |   |   Itching = No: Positive (30.0)
 
-Number of Leaves  : 	26
+Number of Leaves  : 	22
 
-Size of the tree : 	51
+Size of the tree : 	43
 
-0.879	0.906	0.892	0.823
-0.921	0.946	0.933	0.853
-0.771	0.964	0.857	0.806
-0.794	0.931	0.857	0.795
-0.833	0.882	0.857	0.748
-0.615	0.960	0.750	0.697
-0.848	0.903	0.875	0.822
-0.864	1.000	0.927	0.786
-0.814	0.972	0.886	0.740
-0.848	0.933	0.889	0.838
+0.879	0.906	0.892	0.813
+0.923	0.973	0.947	0.871
+0.771	0.964	0.857	0.804
+0.771	0.931	0.844	0.792
+0.789	0.882	0.833	0.734
+0.571	0.960	0.716	0.695
+0.806	0.935	0.866	0.831
+0.864	1.000	0.927	0.780
+0.778	0.972	0.864	0.736
+0.794	0.900	0.844	0.821
 86.54
-90.38
-82.69
+92.31
 82.69
 80.77
-69.23
-84.62
-88.46
+76.92
+63.46
 82.69
-86.54
+88.46
+78.85
+80.77
 ================================================================
 Sigmoid Node 0
     Inputs    Weights
@@ -311,22 +303,22 @@ BinarySMO
 
 Machine linear: showing attribute weights, not support vectors.
 
-         0.7287 * (normalized) Age
- +      -2.1081 * (normalized) Gender=Female
- +      -1.9018 * (normalized) Polyuria=Yes
- +       2.1891 * (normalized) Polydipsia=No
- +      -0.2662 * (normalized) sudden weight loss=Yes
- +       0.1966 * (normalized) weakness=No
- +      -0.5491 * (normalized) Polyphagia=Yes
- +      -0.5205 * (normalized) Genital thrush=Yes
- +      -0.3129 * (normalized) visual blurring=Yes
- +      -1.2748 * (normalized) Itching=No
- +      -1.2889 * (normalized) Irritability=Yes
- +      -0.516  * (normalized) delayed healing=No
- +      -0.7377 * (normalized) partial paresis=Yes
- +      -0.6674 * (normalized) muscle stiffness=No
- +      -0.3456 * (normalized) Alopecia=No
- +      -0.0701 * (normalized) Obesity=No
+         0.7287 * (normalized) attribute with index 0
+ +      -2.1081 * (normalized) attribute with index 1
+ +      -1.9018 * (normalized) attribute with index 2
+ +       2.1891 * (normalized) attribute with index 3
+ +      -0.2662 * (normalized) attribute with index 4
+ +       0.1966 * (normalized) attribute with index 5
+ +      -0.5491 * (normalized) attribute with index 6
+ +      -0.5205 * (normalized) attribute with index 7
+ +      -0.3129 * (normalized) attribute with index 8
+ +      -1.2748 * (normalized) attribute with index 9
+ +      -1.2889 * (normalized) attribute with index 10
+ +      -0.516  * (normalized) attribute with index 11
+ +      -0.7377 * (normalized) attribute with index 12
+ +      -0.6674 * (normalized) attribute with index 13
+ +      -0.3456 * (normalized) attribute with index 14
+ +      -0.0701 * (normalized) attribute with index 15
  +       1.6353
 
 Number of kernel evaluations: 34306 (89.434% cached)
@@ -411,475 +403,5 @@ Class Negative :
 92.31
 80.77
 78.85
-================================================================
-
-769%
-78.846%
-================================================================
-
-	0.845	0.988
-92.308%
-92.308%
-90.385%
-84.615%
-88.462%
-88.462%
-84.615%
-92.308%
-80.769%
-78.846%
-================================================================
-
-99
-Accuracy: 92.31%
-Accuracy: 92.31%
-Accuracy: 90.38%
-Accuracy: 84.62%
-Accuracy: 88.46%
-Accuracy: 88.46%
-Accuracy: 84.62%
-Accuracy: 92.31%
-Accuracy: 80.77%
-Accuracy: 78.85%
-================================================================
-
-0	0.93	0.97	0.95	0.99
-42.0	0.80	0.97	0.88	0.96
-41.0	0.73	1.00	0.85	0.99
-Accuracy: 92.3076923076923
-Accuracy: 92.3076923076923
-Accuracy: 90.38461538461539
-Accuracy: 84.61538461538461
-Accuracy: 88.46153846153847
-Accuracy: 88.46153846153847
-Accuracy: 84.61538461538461
-Accuracy: 92.3076923076923
-Accuracy: 80.76923076923077
-Accuracy: 78.84615384615384
-================================================================
-
-acy: 92.3076923076923
-Iteration no. 2
-47.0	0.85	1.00	0.92	1.00
-Accuracy: 90.38461538461539
-Iteration no. 3
-44.0	0.78	1.00	0.88	0.97
-Accuracy: 84.61538461538461
-Iteration no. 4
-46.0	0.87	0.97	0.92	0.99
-Accuracy: 88.46153846153847
-Iteration no. 5
-46.0	0.81	1.00	0.89	1.00
-Accuracy: 88.46153846153847
-Iteration no. 6
-44.0	0.83	0.94	0.88	0.94
-Accuracy: 84.61538461538461
-Iteration no. 7
-48.0	0.93	0.97	0.95	0.99
-Accuracy: 92.3076923076923
-Iteration no. 8
-42.0	0.80	0.97	0.88	0.96
-Accuracy: 80.76923076923077
-Iteration no. 9
-41.0	0.73	1.00	0.85	0.99
-Accuracy: 78.84615384615384
-================================================================
-
-: 80.76923076923077
-Iteration no. 9
-41.0	0.73%	1.00%	0.85%	0.99%
-Accuracy: 78.84615384615384
-================================================================
-
-stiffness=No] * 0.16 +
-[Obesity=No] * 0.15
-
-Class Negative :
-0.08 + 
-[Age] * 0.02 +
-[Gender=Female] * -1.83 +
-[Polyuria=Yes] * -1.7 +
-[Polydipsia=No] * 2.01 +
-[sudden weight loss=Yes] * -0.35 +
-[weakness=No] * 0.14 +
-[Polyphagia=Yes] * -0.46 +
-[Genital thrush=Yes] * -0.71 +
-[visual blurring=Yes] * -0.19 +
-[Itching=No] * -0.92 +
-[Irritability=Yes] * -1.06 +
-[delayed healing=No] * -0.17 +
-[partial paresis=Yes] * -0.44 +
-[muscle stiffness=No] * -0.16 +
-[Obesity=No] * -0.15
-
-Iteration no. 0
-48.0	0.9117647058823529	0.96875	0.9393939393939394	0.9765625
-Accuracy: 92.3076923076923
-Iteration no. 1
-48.0	0.9230769230769231	0.972972972972973	0.9473684210526315	0.9675675675675676
-Accuracy: 92.3076923076923
-Iteration no. 2
-47.0	0.8484848484848485	1.0	0.9180327868852458	0.9985119047619048
-Accuracy: 90.38461538461539
-Iteration no. 3
-44.0	0.7837837837837838	1.0	0.8787878787878788	0.9700149925037481
-Accuracy: 84.61538461538461
-Iteration no. 4
-46.0	0.868421052631579	0.9705882352941176	0.9166666666666667	0.9918300653594772
-Accuracy: 88.46153846153847
-Iteration no. 5
-46.0	0.8064516129032258	1.0	0.8928571428571428	0.997037037037037
-Accuracy: 88.46153846153847
-Iteration no. 6
-44.0	0.8285714285714286	0.9354838709677419	0.8787878787878788	0.9354838709677419
-Accuracy: 84.61538461538461
-Iteration no. 7
-48.0	0.925	0.9736842105263158	0.9487179487179489	0.9868421052631579
-Accuracy: 92.3076923076923
-Iteration no. 8
-42.0	0.7954545454545454	0.9722222222222222	0.875	0.9600694444444444
-Accuracy: 80.76923076923077
-Iteration no. 9
-41.0	0.7317073170731707	1.0	0.8450704225352113	0.9878787878787879
-Accuracy: 78.84615384615384
-================================================================
-
-      0.884    0.973     0.967     Negative
-Weighted Avg.    0.942    0.055    0.943      0.942    0.942      0.884    0.973     0.975     
-
-
-Accuracy: 94.23076923076923
-Iteration no. 4
-=== Detailed Accuracy By Class ===
-
-                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
-                 0.941    0.056    0.970      0.941    0.955      0.875    0.979     0.991     Positive
-                 0.944    0.059    0.895      0.944    0.919      0.875    0.979     0.949     Negative
-Weighted Avg.    0.942    0.057    0.944      0.942    0.943      0.875    0.979     0.977     
-
-
-Accuracy: 94.23076923076923
-Iteration no. 5
-=== Detailed Accuracy By Class ===
-
-                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
-                 1.000    0.037    0.962      1.000    0.980      0.962    0.997     0.997     Positive
-                 0.963    0.000    1.000      0.963    0.981      0.962    0.997     0.997     Negative
-Weighted Avg.    0.981    0.018    0.982      0.981    0.981      0.962    0.997     0.997     
-
-
-Accuracy: 98.07692307692308
-Iteration no. 6
-=== Detailed Accuracy By Class ===
-
-                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
-                 0.871    0.048    0.964      0.871    0.915      0.810    0.935     0.962     Positive
-                 0.952    0.129    0.833      0.952    0.889      0.810    0.935     0.875     Negative
-Weighted Avg.    0.904    0.080    0.911      0.904    0.905      0.810    0.935     0.927     
-
-
-Accuracy: 90.38461538461539
-Iteration no. 7
-=== Detailed Accuracy By Class ===
-
-                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
-                 0.921    0.071    0.972      0.921    0.946      0.817    0.970     0.990     Positive
-                 0.929    0.079    0.813      0.929    0.867      0.817    0.970     0.903     Negative
-Weighted Avg.    0.923    0.073    0.929      0.923    0.925      0.817    0.970     0.967     
-
-
-Accuracy: 92.3076923076923
-Iteration no. 8
-=== Detailed Accuracy By Class ===
-
-                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
-                 0.917    0.063    0.971      0.917    0.943      0.829    0.951     0.983     Positive
-                 0.938    0.083    0.833      0.938    0.882      0.829    0.951     0.835     Negative
-Weighted Avg.    0.923    0.069    0.928      0.923    0.924      0.829    0.951     0.937     
-
-
-Accuracy: 92.3076923076923
-Iteration no. 9
-=== Detailed Accuracy By Class ===
-
-                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
-                 0.933    0.091    0.933      0.933    0.933      0.842    0.989     0.993     Positive
-                 0.909    0.067    0.909      0.909    0.909      0.842    0.989     0.986     Negative
-Weighted Avg.    0.923    0.081    0.923      0.923    0.923      0.842    0.989     0.990     
-
-
-Accuracy: 92.3076923076923
-================================================================
-SMO
-
-Kernel used:
-  Linear Kernel: K(x,y) = <x,y>
-
-Classifier for classes: Positive, Negative
-
-BinarySMO
-
-Machine linear: showing attribute weights, not support vectors.
-
-         0.7287 * (normalized) Age
- +      -2.1081 * (normalized) Gender=Female
- +      -1.9018 * (normalized) Polyuria=Yes
- +       2.1891 * (normalized) Polydipsia=No
- +      -0.2662 * (normalized) sudden weight loss=Yes
- +       0.1966 * (normalized) weakness=No
- +      -0.5491 * (normalized) Polyphagia=Yes
- +      -0.5205 * (normalized) Genital thrush=Yes
- +      -0.3129 * (normalized) visual blurring=Yes
- +      -1.2748 * (normalized) Itching=No
- +      -1.2889 * (normalized) Irritability=Yes
- +      -0.516  * (normalized) delayed healing=No
- +      -0.7377 * (normalized) partial paresis=Yes
- +      -0.6674 * (normalized) muscle stiffness=No
- +      -0.3456 * (normalized) Alopecia=No
- +      -0.0701 * (normalized) Obesity=No
- +       1.6353
-
-Number of kernel evaluations: 34306 (89.434% cached)
-
-
-Iteration no. 0
-=== Detailed Accuracy By Class ===
-
-                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
-                 0.969    0.000    1.000      0.969    0.984      0.961    0.984     0.988     Positive
-                 1.000    0.031    0.952      1.000    0.976      0.961    0.984     0.952     Negative
-Weighted Avg.    0.981    0.012    0.982      0.981    0.981      0.961    0.984     0.974     
-
-
-Accuracy: 98.07692307692308
-Iteration no. 1
-=== Detailed Accuracy By Class ===
-
-                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
-                 0.946    0.067    0.972      0.946    0.959      0.863    0.940     0.958     Positive
-                 0.933    0.054    0.875      0.933    0.903      0.863    0.940     0.836     Negative
-Weighted Avg.    0.942    0.063    0.944      0.942    0.943      0.863    0.940     0.923     
-
-
-Accuracy: 94.23076923076923
-Iteration no. 2
-=== Detailed Accuracy By Class ===
-
-                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
-                 1.000    0.167    0.875      1.000    0.933      0.854    0.917     0.875     Positive
-                 0.833    0.000    1.000      0.833    0.909      0.854    0.917     0.910     Negative
-Weighted Avg.    0.923    0.090    0.933      0.923    0.922      0.854    0.917     0.891     
-
-
-Accuracy: 92.3076923076923
-Iteration no. 3
-=== Detailed Accuracy By Class ===
-
-                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
-                 0.931    0.174    0.871      0.931    0.900      0.766    0.879     0.849     Positive
-                 0.826    0.069    0.905      0.826    0.864      0.766    0.879     0.824     Negative
-Weighted Avg.    0.885    0.127    0.886      0.885    0.884      0.766    0.879     0.838     
-
-
-Accuracy: 88.46153846153847
-Iteration no. 4
-=== Detailed Accuracy By Class ===
-
-                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
-                 0.971    0.222    0.892      0.971    0.930      0.786    0.874     0.885     Positive
-                 0.778    0.029    0.933      0.778    0.848      0.786    0.874     0.803     Negative
-Weighted Avg.    0.904    0.155    0.906      0.904    0.902      0.786    0.874     0.856     
-
-
-Accuracy: 90.38461538461539
-Iteration no. 5
-=== Detailed Accuracy By Class ===
-
-                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
-                 1.000    0.074    0.926      1.000    0.962      0.926    0.963     0.926     Positive
-                 0.926    0.000    1.000      0.926    0.962      0.926    0.963     0.964     Negative
-Weighted Avg.    0.962    0.036    0.964      0.962    0.962      0.926    0.963     0.946     
-
-
-Accuracy: 96.15384615384616
-Iteration no. 6
-=== Detailed Accuracy By Class ===
-
-                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
-                 0.903    0.143    0.903      0.903    0.903      0.760    0.880     0.874     Positive
-                 0.857    0.097    0.857      0.857    0.857      0.760    0.880     0.792     Negative
-Weighted Avg.    0.885    0.124    0.885      0.885    0.885      0.760    0.880     0.841     
-
-
-Accuracy: 88.46153846153847
-Iteration no. 7
-=== Detailed Accuracy By Class ===
-
-                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
-                 0.974    0.071    0.974      0.974    0.974      0.902    0.951     0.967     Positive
-                 0.929    0.026    0.929      0.929    0.929      0.902    0.951     0.881     Negative
-Weighted Avg.    0.962    0.059    0.962      0.962    0.962      0.902    0.951     0.944     
-
-
-Accuracy: 96.15384615384616
-Iteration no. 8
-=== Detailed Accuracy By Class ===
-
-                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
-                 0.972    0.313    0.875      0.972    0.921      0.723    0.830     0.870     Positive
-                 0.688    0.028    0.917      0.688    0.786      0.723    0.830     0.726     Negative
-Weighted Avg.    0.885    0.225    0.888      0.885    0.879      0.723    0.830     0.826     
-
-
-Accuracy: 88.46153846153847
-Iteration no. 9
-=== Detailed Accuracy By Class ===
-
-                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
-                 0.967    0.091    0.935      0.967    0.951      0.882    0.938     0.924     Positive
-                 0.909    0.033    0.952      0.909    0.930      0.882    0.938     0.904     Negative
-Weighted Avg.    0.942    0.067    0.943      0.942    0.942      0.882    0.938     0.915     
-
-
-Accuracy: 94.23076923076923
-================================================================
-SimpleLogistic:
-
-Class Positive :
--0.08 + 
-[Age] * -0.02 +
-[Gender=Female] * 1.83 +
-[Polyuria=Yes] * 1.7  +
-[Polydipsia=No] * -2.01 +
-[sudden weight loss=Yes] * 0.35 +
-[weakness=No] * -0.14 +
-[Polyphagia=Yes] * 0.46 +
-[Genital thrush=Yes] * 0.71 +
-[visual blurring=Yes] * 0.19 +
-[Itching=No] * 0.92 +
-[Irritability=Yes] * 1.06 +
-[delayed healing=No] * 0.17 +
-[partial paresis=Yes] * 0.44 +
-[muscle stiffness=No] * 0.16 +
-[Obesity=No] * 0.15
-
-Class Negative :
-0.08 + 
-[Age] * 0.02 +
-[Gender=Female] * -1.83 +
-[Polyuria=Yes] * -1.7 +
-[Polydipsia=No] * 2.01 +
-[sudden weight loss=Yes] * -0.35 +
-[weakness=No] * 0.14 +
-[Polyphagia=Yes] * -0.46 +
-[Genital thrush=Yes] * -0.71 +
-[visual blurring=Yes] * -0.19 +
-[Itching=No] * -0.92 +
-[Irritability=Yes] * -1.06 +
-[delayed healing=No] * -0.17 +
-[partial paresis=Yes] * -0.44 +
-[muscle stiffness=No] * -0.16 +
-[Obesity=No] * -0.15
-
-Iteration no. 0
-=== Detailed Accuracy By Class ===
-
-                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
-                 0.969    0.150    0.912      0.969    0.939      0.837    0.977     0.990     Positive
-                 0.850    0.031    0.944      0.850    0.895      0.837    0.977     0.943     Negative
-Weighted Avg.    0.923    0.104    0.924      0.923    0.922      0.837    0.977     0.972     
-
-
-Accuracy: 92.3076923076923
-Iteration no. 1
-=== Detailed Accuracy By Class ===
-
-                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
-                 0.973    0.200    0.923      0.973    0.947      0.809    0.968     0.986     Positive
-                 0.800    0.027    0.923      0.800    0.857      0.809    0.968     0.943     Negative
-Weighted Avg.    0.923    0.150    0.923      0.923    0.921      0.809    0.968     0.974     
-
-
-Accuracy: 92.3076923076923
-Iteration no. 2
-=== Detailed Accuracy By Class ===
-
-                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
-                 1.000    0.208    0.848      1.000    0.918      0.820    0.999     0.999     Positive
-                 0.792    0.000    1.000      0.792    0.884      0.820    0.999     0.998     Negative
-Weighted Avg.    0.904    0.112    0.918      0.904    0.902      0.820    0.999     0.999     
-
-
-Accuracy: 90.38461538461539
-Iteration no. 3
-=== Detailed Accuracy By Class ===
-
-                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
-                 1.000    0.348    0.784      1.000    0.879      0.715    0.970     0.979     Positive
-                 0.652    0.000    1.000      0.652    0.789      0.715    0.970     0.964     Negative
-Weighted Avg.    0.846    0.194    0.879      0.846    0.839      0.715    0.970     0.972     
-
-
-Accuracy: 84.61538461538461
-Iteration no. 4
-=== Detailed Accuracy By Class ===
-
-                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
-                 0.971    0.278    0.868      0.971    0.917      0.743    0.992     0.996     Positive
-                 0.722    0.029    0.929      0.722    0.813      0.743    0.992     0.984     Negative
-Weighted Avg.    0.885    0.192    0.889      0.885    0.881      0.743    0.992     0.992     
-
-
-Accuracy: 88.46153846153847
-Iteration no. 5
-=== Detailed Accuracy By Class ===
-
-                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
-                 1.000    0.222    0.806      1.000    0.893      0.792    0.997     0.997     Positive
-                 0.778    0.000    1.000      0.778    0.875      0.792    0.997     0.997     Negative
-Weighted Avg.    0.885    0.107    0.907      0.885    0.884      0.792    0.997     0.997     
-
-
-Accuracy: 88.46153846153847
-Iteration no. 6
-=== Detailed Accuracy By Class ===
-
-                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
-                 0.935    0.286    0.829      0.935    0.879      0.680    0.935     0.962     Positive
-                 0.714    0.065    0.882      0.714    0.789      0.680    0.935     0.893     Negative
-Weighted Avg.    0.846    0.196    0.850      0.846    0.843      0.680    0.935     0.934     
-
-
-Accuracy: 84.61538461538461
-Iteration no. 7
-=== Detailed Accuracy By Class ===
-
-                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
-                 0.974    0.214    0.925      0.974    0.949      0.799    0.987     0.995     Positive
-                 0.786    0.026    0.917      0.786    0.846      0.799    0.987     0.968     Negative
-Weighted Avg.    0.923    0.164    0.923      0.923    0.921      0.799    0.987     0.988     
-
-
-Accuracy: 92.3076923076923
-Iteration no. 8
-=== Detailed Accuracy By Class ===
-
-                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
-                 0.972    0.563    0.795      0.972    0.875      0.524    0.960     0.985     Positive
-                 0.438    0.028    0.875      0.438    0.583      0.524    0.960     0.900     Negative
-Weighted Avg.    0.808    0.398    0.820      0.808    0.785      0.524    0.960     0.959     
-
-
-Accuracy: 80.76923076923077
-Iteration no. 9
-=== Detailed Accuracy By Class ===
-
-                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
-                 1.000    0.500    0.732      1.000    0.845      0.605    0.988     0.992     Positive
-                 0.500    0.000    1.000      0.500    0.667      0.605    0.988     0.983     Negative
-Weighted Avg.    0.788    0.288    0.845      0.788    0.770      0.605    0.988     0.988     
-
-
-Accuracy: 78.84615384615384
 ================================================================
 

@@ -11,11 +11,18 @@ import java.util.List;
 public class App extends JApplet implements ActionListener{
     static JFrame window;   
     ArrayList<JRadioButton> symptoms; 
+    ArrayList<String> queue; 
+    int queueIndex;
+    String previousFile; 
+
     String file = ""; 
     InstanceProcessor ip; 
     JTextPane predictionResult;  
     JTextArea definition; 
     JLabel toDefine;
+    JLabel ageLabel;
+    JLabel genderLabel; 
+    JTextArea instructionLabel; 
     JComboBox furtherDetails;
     JTextArea detailsArea;
     JScrollPane spDetailsArea;
@@ -23,13 +30,19 @@ public class App extends JApplet implements ActionListener{
     JButton modelDetails;
     JButton detailsExpand;
     JButton clear;
+    JButton backNav;
+    JButton forwardNav;
+    JButton homeNav;
     JTextField age;
     JComboBox gender; 
-    JComboBox clsOption; 
+    JLabel cls; 
  
     public void init() {
         AppComponents ac = new AppComponents();   
         symptoms = ac.appRadioButtons();
+        queue = new ArrayList<>();
+        queueIndex = -1;
+        previousFile = "";
         file = "Prediabetes";
         AppLayout customLayout = new AppLayout(); 
         getContentPane().setFont(new Font("Monaco", Font.BOLD, 20));
@@ -48,7 +61,11 @@ public class App extends JApplet implements ActionListener{
         } catch (Exception e) {}
 
 
-        toDefine = ac.appLabel();
+        toDefine = ac.appLabel("Prediabetes");
+        ageLabel = ac.newLabel("Age");
+        genderLabel = ac.newLabel("Gender");
+        instructionLabel = ac.appBasicText("instructions","Fill up personal information and check present symptoms.");
+        instructionLabel.setOpaque(false);
 
         predict = ac.appButton("Predict");
         predict.addActionListener(this);
@@ -57,7 +74,8 @@ public class App extends JApplet implements ActionListener{
 
         gender = ac.appComboBox(AppOptions.getGenderOptions(), "Gender"); 
 
-        clsOption = ac.appComboBox(AppOptions.getModelOptions(), "classifier options");
+        //cls = ac.appComboBox(AppOptions.getModelOptions(), "classifier options");
+        cls = ac.appLabel("Multilayer Perceptron"); 
          
         modelDetails = ac.appButton(AppOptions.getIcon("qIcon"));           
         modelDetails.addActionListener(this);
@@ -67,6 +85,15 @@ public class App extends JApplet implements ActionListener{
 
         clear = ac.appButton(AppOptions.getIcon("clearIcon"));
         clear.addActionListener(this);
+
+        backNav = ac.appButton(AppOptions.getIcon("backIcon"));
+        backNav.addActionListener(this);
+
+        forwardNav = ac.appButton(AppOptions.getIcon("forwardIcon"));
+        forwardNav.addActionListener(this);
+
+        homeNav = ac.appButton(AppOptions.getIcon("homeIcon"));
+        homeNav.addActionListener(this);
 
         getContentPane().add(ac.appScrollPane(predictionResult));               //component 0
         getContentPane().add(ac.appScrollPane(definition));                     //component 1
@@ -81,10 +108,16 @@ public class App extends JApplet implements ActionListener{
             b.setFont(new Font("Serif", Font.BOLD, 14));
             b.addActionListener(this);
         }  
-        getContentPane().add(clsOption);                                        //component 22 
+        getContentPane().add(cls);                                        //component 22 
         getContentPane().add(modelDetails);                                     //component 23
         getContentPane().add(detailsExpand);                                    //component 24
         getContentPane().add(clear);                                            //component 25		
+        getContentPane().add(ageLabel);                                         //component 26
+        getContentPane().add(genderLabel);                                      //component 27
+        getContentPane().add(backNav);                                          //component 28
+        getContentPane().add(forwardNav);                                       //component 29
+        getContentPane().add(homeNav);                                          //component 30
+        getContentPane().add(instructionLabel);                                          //component 31
         setSize(getPreferredSize());
 
     } 
@@ -96,23 +129,9 @@ public class App extends JApplet implements ActionListener{
                 JOptionPane.showMessageDialog(window, "Age is required.", "Error", JOptionPane.ERROR_MESSAGE);
             } else {
                 try { 
-                    HashMap<String, Double> inputs = mapInputs();
-                    if (clsOption.getSelectedItem() == "Multilayer Perceptron") {
-                        ip.setInputsAndOption(inputs, 0);
-                        predictionResult.setText("MLP : "+ip.classifyInput());
-                    } 
-                    if (clsOption.getSelectedItem() == "Decision Tree") {
-                        ip.setInputsAndOption(inputs, 1);
-                        predictionResult.setText("Decision Tree : "+ip.classifyInput());
-                    } 
-                    if (clsOption.getSelectedItem() == "SMO") {
-                        ip.setInputsAndOption(inputs, 2);
-                        predictionResult.setText("SMO : "+ip.classifyInput());
-                    } 
-                    if (clsOption.getSelectedItem() == "Logistic") {
-                        ip.setInputsAndOption(inputs, 3);
-                        predictionResult.setText("Logistic : "+ip.classifyInput());
-                    }  
+                    HashMap<String, Double> inputs = mapInputs(); 
+                    ip.setInputsAndOption(inputs, 0);
+                    predictionResult.setText(ip.classifyInput()); 
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
@@ -159,13 +178,14 @@ public class App extends JApplet implements ActionListener{
             symptomsWindow.setVisible(true);
         }
         if (e.getSource() instanceof JRadioButton) {
-            try {
                 JRadioButton b = (JRadioButton) e.getSource();
                 file = b.getText();  
-                toDefine.setText(file); 
-                definition.setText(DataHandler.openInfo(file)); 
-                detailsArea.setText(AppOptions.boxContent(furtherDetails, file));
-            } catch (IOException io) {io.printStackTrace();} 
+                if (!file.equals(previousFile)) {    //prevents consequtive duplications in queue 
+                    previousFile = file; 
+                    queue.add(file);
+                    queueIndex = queue.size() - 1; 
+                }
+                setDefinitions(file); 
         }
         if (e.getSource() instanceof JComboBox) {
             try {
@@ -177,6 +197,39 @@ public class App extends JApplet implements ActionListener{
         	for (JRadioButton b : symptoms) {
         		b.setSelected(false);
         	}
+        }
+        if (e.getSource() == backNav) { 
+            if (queueIndex > 0) { 
+                queueIndex -= 1; 
+                setDefinitions(queue.get(queueIndex));
+            } else if (queueIndex == 0){
+                setDefinitions("Prediabetes");
+                queueIndex = -1; 
+            } else {
+                JOptionPane.showMessageDialog(window, "No back items available", "Information", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
+        if (e.getSource() == forwardNav) { 
+            if ((queueIndex + 1) < queue.size()) {
+                queueIndex++;
+                setDefinitions(queue.get(queueIndex));
+            } else {
+                JOptionPane.showMessageDialog(window, "Latest clicked item reached", "Information", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
+        if (e.getSource() == homeNav) {
+            setDefinitions("Prediabetes");
+            queueIndex = queue.size() - 2; 
+            //option to clear array in this event
+        }
+    }
+    private void setDefinitions(String file) {
+        try {
+            toDefine.setText(file); 
+            definition.setText(DataHandler.openInfo(file)); 
+            detailsArea.setText(AppOptions.boxContent(furtherDetails, file));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -206,7 +259,7 @@ public class App extends JApplet implements ActionListener{
 
     public static void main(String args[]) throws IOException {
         App app = new App();
-        window = new JFrame("gui");  
+        window = new JFrame("Prediabetes Prediction Application");  
 
         window.addWindowListener(new WindowAdapter() { 
             public void windowClosing(WindowEvent e) {

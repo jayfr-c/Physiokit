@@ -37,7 +37,7 @@ public class ModelBuilder {
 
 		//Decision Tree 
 		J48 j48 = new J48();
-		j48.setOptions(new String[] { "-C", "0.25", "-M", "1" }); 
+		j48.setOptions(new String[] { "-C", "0.25", "-M", "2" }); 
 		j48 = (J48) mg.buildClassifier(j48, dataset);
 		System.out.println("\nDECISION TREE\n");
 		mg.crossValidateModel(j48, dataset);
@@ -54,12 +54,13 @@ public class ModelBuilder {
 		mg.crossValidateModel(log, dataset);
 
 		//SMO
-		SMO smo = new SMO();
-		smo.setOptions(Utils.splitOptions("-C 1.0 -L 0.001 -P 1.0E-12 -N 0 -V -1 -W 1 -K \"weka.classifiers.functions.supportVector.PolyKernel -C 250007 -E 1.0\""));
-		smo.setChecksTurnedOff(false);
+		SMO smo = new SMO(); 
+        smo.setOptions(Utils.splitOptions("-C 1.0 -L 0.001 -P 1.0E-12 -N 0 -V -1 -W 1 -K \"weka.classifiers.functions.supportVector.PolyKernel -C 250007 -E 1.0\""));
+		smo.turnChecksOff();  
+
 		smo = (SMO) mg.buildClassifier(smo, dataset);
 		System.out.println("\nSMO\n");
-		mg.crossValidateModel(smo, dataset);  
+		mg.crossValidateModel(smo, dataset);   
 
 		/*---------------------Manual Cross Validation------------------------------*/
 

@@ -13,11 +13,16 @@ public class AppComponents {
 	private Font regular = new Font("Serif", Font.BOLD, 14);
 	private Font contentFont = new Font("Monaco", Font.PLAIN, 14);
 
-	public JLabel appLabel() {
-		JLabel comp = new JLabel("Prediabetes"); 
+	public JLabel appLabel(String label) {
+		JLabel comp = new JLabel(label); 
         comp.setFont(titleFont);
         return comp;
 	}
+        public JLabel newLabel(String label) {
+                JLabel comp = new JLabel(label);
+                comp.setFont(contentFont);
+                return comp; 
+        }
 	public JTextField appTextField(String toolTipText) {
 		JTextField comp =  new JTextField(); 
         comp.setFont(regular);
@@ -38,6 +43,18 @@ public class AppComponents {
         caret.setUpdatePolicy(DefaultCaret.NEVER_UPDATE); 
         return comp;
 	}
+
+        public JTextArea appBasicText(String toolTipText, String content) {
+                JTextArea comp = new JTextArea("");
+        comp.setToolTipText(toolTipText);
+        /*Text Area Settings Source: https://alvinalexander.com/source-code/java/how-set-font-caret-position-and-margins-insets-jtextarea-component/*/
+        comp.setFont(regular);   
+        comp.setLineWrap(true);
+        comp.setText(content);  
+        comp.setEditable(false);  
+        return comp;
+        }
+
 	public JTextPane appTextPane() {
 		JTextPane comp = new JTextPane();
         comp.setToolTipText("Prediction Result");
