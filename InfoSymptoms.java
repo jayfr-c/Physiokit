@@ -13,6 +13,7 @@ import java.nio.file.Paths;
 import java.nio.file.Files;
 
 public class InfoSymptoms extends Applet{
+    AppComponents ac;
     JTextArea textarea_1;
     JScrollPane sp_textarea_1;
     ButtonGroup cbg; 
@@ -33,13 +34,14 @@ public class InfoSymptoms extends Applet{
     ArrayList<JRadioButton> buttons;
 
     public void init(){
+        ac = new AppComponents();
         SymptomsDetailsLayout customLayout = new SymptomsDetailsLayout();
         buttons = new ArrayList<>();
 
         setFont(new Font("Helvetica", Font.PLAIN, 12));
         setLayout(customLayout);
 
-        textarea_1 = new JTextArea("");
+        textarea_1 = ac.appTextArea("further contents", " ");
         textarea_1.setEditable(false);
         sp_textarea_1 = new JScrollPane(textarea_1);
         add(sp_textarea_1);
@@ -112,7 +114,13 @@ public class InfoSymptoms extends Applet{
                 @Override
                 public void actionPerformed(ActionEvent e) { 
                     try {
-                        textarea_1.setText(DataHandler.openInfo(b.getText()));
+                        String content = "DEFINITION\n" + DataHandler.openInfo(b.getText())
+                                        +"\nDIAGNOSIS\n" + DataHandler.openDiagnosis(b.getText())
+                                        +"\nCAUSES\n" + DataHandler.openCauses(b.getText())
+                                        +"\nCURE\n" + DataHandler.openCure(b.getText())
+                                        +"\nREFERENCES\n" + DataHandler.openReferences(b.getText());
+
+                        textarea_1.setText(content);
                     } catch (IOException io) {
                         io.printStackTrace();
                     } 

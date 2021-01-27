@@ -22,8 +22,8 @@ public class DataHandler {
     public static String openInfo(String filename) throws IOException {
         return DataExtractor.fileToString(DataPaths.INFOPATH + filename + "/definition.txt");    
     }
-    public static String openTreatment(String filename) throws IOException {
-        return DataExtractor.fileToString(DataPaths.INFOPATH + filename + "/Treatment.txt");
+    public static String openCure(String filename) throws IOException {
+        return DataExtractor.fileToString(DataPaths.INFOPATH + filename + "/Cure.txt");
     }
     public static String openDiagnosis(String filename) throws IOException { 
         return DataExtractor.fileToString(DataPaths.INFOPATH + filename + "/Diagnosis.txt");

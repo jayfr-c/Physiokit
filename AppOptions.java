@@ -8,7 +8,7 @@ public class AppOptions {
 		ArrayList<String> detailsOptions = new ArrayList<>();
         detailsOptions.add("Diagnosis");
         detailsOptions.add("Causes");
-        detailsOptions.add("Treatment");
+        detailsOptions.add("Cure");
         detailsOptions.add("References");
         return detailsOptions;
 	}
@@ -33,8 +33,8 @@ public class AppOptions {
 		return DataHandler.openInfo(filename);
 	}
 	public static String boxContent(JComboBox furtherDetails, String filename) throws IOException {
-		if (furtherDetails.getSelectedItem().equals("Treatment")) {
-			return DataHandler.openTreatment(filename);
+		if (furtherDetails.getSelectedItem().equals("Cure")) {
+			return DataHandler.openCure(filename);
 		}
 		if (furtherDetails.getSelectedItem().equals("Diagnosis")) {
 			return DataHandler.openDiagnosis(filename);
