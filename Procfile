@@ -1,2 +1,2 @@
-web: java -jar App.jar App opt1 opt2 
+web: java -jar App.jar App 
 

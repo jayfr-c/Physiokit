@@ -14,15 +14,15 @@ public class AppComponents {
 	private Font contentFont = new Font("Monaco", Font.PLAIN, 14);
 
 	public JLabel appLabel(String label) {
-		JLabel comp = new JLabel(label); 
+	   JLabel comp = new JLabel(label); 
         comp.setFont(titleFont);
         return comp;
 	}
-        public JLabel newLabel(String label) {
-                JLabel comp = new JLabel(label);
-                comp.setFont(contentFont);
-                return comp; 
-        }
+    public JLabel newLabel(String label) {
+        JLabel comp = new JLabel(label);
+        comp.setFont(contentFont);
+        return comp; 
+    }
 	public JTextField appTextField(String toolTipText) {
 		JTextField comp =  new JTextField(); 
         comp.setFont(regular);
@@ -44,8 +44,8 @@ public class AppComponents {
         return comp;
 	}
 
-        public JTextArea appBasicText(String toolTipText, String content) {
-                JTextArea comp = new JTextArea("");
+    public JTextArea appBasicText(String toolTipText, String content) {
+        JTextArea comp = new JTextArea("");
         comp.setToolTipText(toolTipText);
         /*Text Area Settings Source: https://alvinalexander.com/source-code/java/how-set-font-caret-position-and-margins-insets-jtextarea-component/*/
         comp.setFont(regular);   
@@ -53,7 +53,7 @@ public class AppComponents {
         comp.setText(content);  
         comp.setEditable(false);  
         return comp;
-        }
+    }
 
 	public JTextPane appTextPane() {
 		JTextPane comp = new JTextPane();
@@ -67,12 +67,15 @@ public class AppComponents {
         doc.setParagraphAttributes(0, doc.getLength(), center, false);
         return comp;
 	}
+
 	public JScrollPane appScrollPane(JTextPane comp) {
 		return new JScrollPane(comp);
 	}
+
 	public JScrollPane appScrollPane(JTextArea comp) {
 		return new JScrollPane(comp);
 	}
+
 	public JComboBox appComboBox(List<String> options, String toolTipText) {
 		JComboBox comp = new JComboBox(); 
         comp.setToolTipText(toolTipText);
@@ -82,15 +85,18 @@ public class AppComponents {
         }
         return comp;
 	}
+
 	public JButton appButton(String name) {
 		JButton comp = new JButton("Predict");
         comp.setFont(regular);
         return comp;
 	}
+
 	public JButton appButton(Icon icon) {
 		JButton comp = new JButton(icon);
 		return comp;
 	}
+    
 	public ArrayList<JRadioButton> appRadioButtons() {
 		ArrayList<JRadioButton> symptoms = new ArrayList<>();
 		JRadioButton radio_1 = new JRadioButton("Polyuria", false); //component 8  

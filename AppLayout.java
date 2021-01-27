@@ -5,14 +5,11 @@ import javax.swing.*;
 
 public class AppLayout implements LayoutManager {
 
-    public AppLayout() {
-    }
+    public AppLayout() {}
 
-    public void addLayoutComponent(String name, Component comp) {
-    }
+    public void addLayoutComponent(String name, Component comp) {}
 
-    public void removeLayoutComponent(Component comp) {
-    }
+    public void removeLayoutComponent(Component comp) {}
 
     public Dimension preferredLayoutSize(Container parent) {
         Dimension dim = new Dimension(0, 0);
@@ -73,7 +70,6 @@ public class AppLayout implements LayoutManager {
         if (c.isVisible()) {c.setBounds(insets.left+32,insets.top+289,200,24);} //partial paresis
         c = parent.getComponent(19);
         if (c.isVisible()) {c.setBounds(insets.left+32,insets.top+309,200,24);} //muscle stiffness
-        //pane 
         c = parent.getComponent(20);
         if (c.isVisible()) {c.setBounds(insets.left+32,insets.top+329,200,24);} //alopecia
         c = parent.getComponent(21);
